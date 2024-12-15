@@ -1,0 +1,228 @@
+/* Modern Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 50px;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+/* Main Container */
+.signin-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Background Video */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* Sign In Box */
+.signin-box {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signin-box h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Password Input */
+.password-input {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.forgot-password {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Sign In Button */
+.signin-btn {
+    width: 100%;
+    padding: 14px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.signin-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Social Sign In */
+.social-signin {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-signin p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.social-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.social-btn {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Sign Up Link */
+.signup-link {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.signup-link a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .signin-box {
+        padding: 30px;
+    }
+
+    .social-buttons {
+        grid-template-columns: 1fr;
+    }
+}

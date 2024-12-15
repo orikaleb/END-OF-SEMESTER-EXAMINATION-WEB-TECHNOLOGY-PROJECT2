@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Events - EventFlow</title>
+    <link rel="stylesheet" href="css/myevents.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/eventHandler.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>My Events</h1>
+        <nav class="nav">
+            <a href="calendar.html">Calendar</a>
+            <a href="upcoming.html">Upcoming</a>
+            <a href="myevents.html" class="active">My Events</a>
+            <a href="user.html">Profile</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="events-container">
+            <div class="events-header">
+                <div class="event-filters">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                    <button class="filter-btn" data-filter="past">Past</button>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-grid-2"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="my-events-list">
+                <!-- Events will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Cancel Confirmation Modal -->
+        <div class="modal-overlay" id="cancelModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Cancel Registration</h3>
+                </div>
+                <div class="modal-content">
+                    <p>Are you sure you want to cancel your registration for "<span id="eventTitle"></span>"?</p>
+                    <p>This action cannot be undone.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn cancel" id="modalCancel">No, Keep it</button>
+                    <button class="modal-btn confirm" id="modalConfirm">Yes, Cancel</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

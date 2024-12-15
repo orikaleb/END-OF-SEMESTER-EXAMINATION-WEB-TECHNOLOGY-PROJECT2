@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - EventFlow</title>
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .admin-login-header {
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        .back-button i {
+            font-size: 0.8rem;
+        }
+
+        .admin-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .auth-box {
+            max-width: 400px;
+            position: relative;
+        }
+
+        .warning-text {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-align: center;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .warning-text i {
+            color: #ffd700;
+        }
+
+        .error-message {
+            color: #ff4444;
+            background: rgba(255, 68, 68, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header admin-login-header">
+                <a href="login.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Login
+                </a>
+                <div class="admin-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h1>Admin Access</h1>
+                <p class="subtitle">Enter your admin credentials</p>
+            </div>
+
+            <div id="errorMessage" class="error-message"></div>
+
+            <form class="auth-form" id="adminLoginForm">
+                <div class="form-group">
+                    <div class="input-icon">
+                        <input type="text" id="adminUsername" placeholder="Admin Username" required>
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-icon">
+                        <input type="password" id="adminPassword" placeholder="Admin Password" required>
+                        <i class="fas fa-lock"></i>
+                        <button type="button" class="password-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    <span>Access Dashboard</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <p class="warning-text">
+                <i class="fas fa-triangle-exclamation"></i>
+                Authorized personnel only
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.classList.add('show');
+            setTimeout(() => {
+                errorDiv.classList.remove('show');
+            }, 5000); // Hide after 5 seconds
+        }
+
+        // Toggle password visibility
+        document.querySelector('.password-toggle').addEventListener('click', function() {
+            const passwordInput = document.getElementById('adminPassword');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Handle admin login
+        document.getElementById('adminLoginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/admin-login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('adminToken', data.token);
+                    window.location.href = 'admin.html';
+                } else {
+                    const error = await response.json();
+                    showError(error.message || 'Invalid admin credentials');
+                }
+            } catch (error) {
+                console.error('Admin login error:', error);
+                showError('Cannot connect to server. Please make sure the backend server is running on port 3000.');
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - EventFlow</title>
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/eventHandler.js" defer></script>
+    <script src="js/profile.js" defer></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-calendar-check"></i>
+            <span>Event<span class="flow">Flow</span></span>
+        </div>
+        <nav class="nav-menu">
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="calendar.html"><i class="fas fa-calendar-week"></i> Calendar</a>
+            <a href="upcoming.html"><i class="fas fa-clock"></i> Upcoming</a>
+            <a href="user.html" class="active"><i class="fas fa-user"></i> Profile</a>
+            <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <div class="top-bar">
+            <h1>My Profile</h1>
+            <div class="user-menu">
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="user-info">
+                    <img src="images/avatar-placeholder.jpg" alt="Profile Picture">
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-grid">
+            <div class="profile-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-user-circle"></i> Personal Information</h2>
+                    <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                </div>
+                <div class="card-content">
+                    <div class="profile-field">
+                        <label>Username</label>
+                        <p data-field="fullName">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-shield-alt"></i> Security</h2>
+                </div>
+                <div class="card-content">
+                    <form class="security-form">
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" placeholder="Enter current password">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" placeholder="Enter new password">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="Confirm new password">
+                        </div>
+                        <button type="submit" class="update-btn">Update Password</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-bell"></i> Notifications</h2>
+                </div>
+                <div class="card-content">
+                    <div class="notification-option">
+                        <div class="option-info">
+                            <h3>Email Notifications</h3>
+                            <p>Get updates about your events via email</p>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="notification-option">
+                        <div class="option-info">
+                            <h3>Push Notifications</h3>
+                            <p>Receive instant notifications on your device</p>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-chart-line"></i> Activity</h2>
+                </div>
+                <div class="card-content">
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <i class="fas fa-calendar-plus"></i>
+                            <div class="activity-info">
+                                <p>Created new event "Team Meeting"</p>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-edit"></i>
+                            <div class="activity-info">
+                                <p>Updated profile information</p>
+                                <span>Yesterday</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-user-plus"></i>
+                            <div class="activity-info">
+                                <p>Joined EventFlow</p>
+                                <span>1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-calendar-check"></i> My Registered Events</h2>
+                </div>
+                <div class="card-content">
+                    <div class="my-events-list">
+                        <div class="event-item">
+                            <div class="event-image">
+                                <img src="images/tech-conference.jpg" alt="Tech Conference">
+                                <span class="event-status upcoming">Upcoming</span>
+                                <button class="cancel-btn" title="Cancel Registration">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="event-details">
+                                <h3>Tech Innovation Summit 2024</h3>
+                                <div class="event-meta">
+                                    <span><i class="fas fa-calendar"></i> March 25, 2024</span>
+                                    <span><i class="fas fa-clock"></i> 9:00 AM</span>
+                                </div>
+                                <div class="event-location">
+                                    <i class="fas fa-location-dot"></i> Accra Digital Centre
+                                </div>
+                                <button class="view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

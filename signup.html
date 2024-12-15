@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EventFlow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <i class="fas fa-user-plus auth-icon"></i>
+                <h1>Create Account</h1>
+                <p class="auth-subtitle">Join our event management platform</p>
+            </div>
+            <form class="auth-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" required>
+                        <i class="fas fa-eye-slash password-toggle" onclick="togglePassword('password')"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Event Preferences</label>
+                    <div class="preference-grid">
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="academic">
+                            <span class="preference-box">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Academic</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="cultural">
+                            <span class="preference-box">
+                                <i class="fas fa-theater-masks"></i>
+                                <span>Cultural</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="sports">
+                            <span class="preference-box">
+                                <i class="fas fa-running"></i>
+                                <span>Sports</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="technical">
+                            <span class="preference-box">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>Technical</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="workshop">
+                            <span class="preference-box">
+                                <i class="fas fa-tools"></i>
+                                <span>Workshop</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="career">
+                            <span class="preference-box">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Career</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="social">
+                            <span class="preference-box">
+                                <i class="fas fa-users"></i>
+                                <span>Social</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="gaming">
+                            <span class="preference-box">
+                                <i class="fas fa-gamepad"></i>
+                                <span>Gaming</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="music">
+                            <span class="preference-box">
+                                <i class="fas fa-music"></i>
+                                <span>Music</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="art">
+                            <span class="preference-box">
+                                <i class="fas fa-palette"></i>
+                                <span>Art</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="hackathon">
+                            <span class="preference-box">
+                                <i class="fas fa-code"></i>
+                                <span>Hackathon</span>
+                            </span>
+                        </label>
+                        <label class="preference-item">
+                            <input type="checkbox" name="preferences" value="seminar">
+                            <span class="preference-box">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>Seminar</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="auth-btn">
+                    <span>Create Account</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            <p class="auth-link">Already have an account? <a href="index.html">Sign in</a></p>
+        </div>
+    </div>
+</body>
+</html> 

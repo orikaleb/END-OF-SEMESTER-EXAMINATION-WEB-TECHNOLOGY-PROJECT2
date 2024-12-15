@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Event - EventFlow</title>
+    <link rel="stylesheet" href="css/cal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .notification.success {
+            background: #22c55e;
+            color: white;
+        }
+
+        .notification.error {
+            background: #ef4444;
+            color: white;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Form styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .file-input {
+            position: relative;
+        }
+
+        .file-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border: 2px dashed var(--gray-300);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-label:hover {
+            border-color: var(--primary);
+            background: rgba(79, 70, 229, 0.05);
+        }
+
+        input[type="file"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-200);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Add New Event</h1>
+        <nav class="nav">
+            <a href="admin.html">Back to Dashboard</a>
+            <a href="events.html" class="active">Events</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <section class="section">
+        <div class="add-event-container">
+            <form class="add-event-form">
+                <div class="form-header">
+                    <h2>Event Details</h2>
+                    <p>Fill in the information below to create a new event</p>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="eventTitle">
+                            <i class="fas fa-heading"></i>
+                            Event Title
+                        </label>
+                        <input type="text" id="eventTitle" placeholder="Enter event title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventType">
+                            <i class="fas fa-tag"></i>
+                            Event Type
+                        </label>
+                        <select id="eventType" required>
+                            <option value="" disabled selected>Select event type</option>
+                            <option value="conference">Conference</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="seminar">Seminar</option>
+                            <option value="networking">Networking</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventDate">
+                            <i class="fas fa-calendar"></i>
+                            Date
+                        </label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventTime">
+                            <i class="fas fa-clock"></i>
+                            Start Time
+                        </label>
+                        <input type="time" id="eventTime" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventLocation">
+                            <i class="fas fa-location-dot"></i>
+                            Location
+                        </label>
+                        <input type="text" id="eventLocation" placeholder="Enter event location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maxParticipants">
+                            <i class="fas fa-users"></i>
+                            Max Participants
+                        </label>
+                        <input type="number" id="maxParticipants" placeholder="Enter maximum participants" min="1" value="100">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="eventDescription">
+                            <i class="fas fa-align-left"></i>
+                            Description
+                        </label>
+                        <textarea id="eventDescription" rows="4" placeholder="Enter event description" required></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="eventImage">
+                            <i class="fas fa-image"></i>
+                            Event Image
+                        </label>
+                        <div class="file-input">
+                            <input type="file" id="eventImage" accept="image/*">
+                            <label for="eventImage" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Choose an image</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="window.location.href='admin.html'">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Create Event
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="js/eventForm.js"></script>
+</body>
+</html>

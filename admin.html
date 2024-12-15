@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EventFlow</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Admin Dashboard</h1>
+        <nav class="nav">
+            <a href="home.html">Home</a>
+            <a href="admin.html" class="active">Dashboard</a>
+            <a href="events.html">add Events</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main class="admin-dashboard">
+        <div class="dashboard-grid">
+            <!-- Statistics Cards -->
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <div class="stat-info">
+                    <h3>Total Users</h3>
+                    <p id="totalUsers">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-calendar-check"></i>
+                <div class="stat-info">
+                    <h3>Active Events</h3>
+                    <p id="activeEvents">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-ticket"></i>
+                <div class="stat-info">
+                    <h3>Total Registrations</h3>
+                    <p id="totalRegistrations">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Events Section -->
+        <div class="table-container upcoming-events">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-alt"></i> Upcoming Events</h2>
+            </div>
+            <div class="events-grid" id="upcomingEventsGrid">
+                <!-- Events will be loaded dynamically -->
+            </div>
+        </div>
+
+        <!-- Recent Events Table -->
+        <div class="table-container">
+            <h2>Recent Events</h2>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Participants</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="eventsTableBody">
+                    <!-- Events will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- User Management Table -->
+        <div class="table-container">
+            <h2>User Management</h2>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                    <!-- Users will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Add JavaScript file -->
+    <script src="js/admin.js"></script>
+</body>
+</html>
+  
