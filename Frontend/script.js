@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let username = document.getElementById('username').value;
             let password = document.getElementById('password').value;
             
-            fetch('http://localhost:3000/api/auth/login', {
+            fetch('@https://end-of-semester-examination-web.onrender.com//api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
             
-            fetch('http://localhost:3000/api/auth/register', {
+            fetch('@https://end-of-semester-examination-web.onrender.com//api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

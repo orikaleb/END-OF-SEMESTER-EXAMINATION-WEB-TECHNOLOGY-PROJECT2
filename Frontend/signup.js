@@ -6,7 +6,7 @@ form.addEventListener('submit', (e) => {
     let password = document.getElementById('password').value;
     let email = document.getElementById('email').value;
 
-    fetch('http://localhost:3000/api/auth/register', {
+    fetch('@https://end-of-semester-examination-web.onrender.com//api/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
