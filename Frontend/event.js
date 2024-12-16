@@ -1,7 +1,7 @@
 // Event management functionality
 class EventManager {
     constructor() {
-        this.baseUrl = '@https://end-of-semester-examination-web.onrender.com//api';
+        this.baseUrl = 'https://end-of-semester-examination-web.onrender.com/api';
         this.token = localStorage.getItem('token');
     }
 
