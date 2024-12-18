@@ -13,6 +13,19 @@ A full-stack event management application built with Express.js backend and Mong
 
 ## Tech Stack
 
+### Frontend
+- HTML5
+- CSS3 with Flexbox/Grid
+- JavaScript (ES6+)
+- Font Awesome Icons
+- Responsive Design
+
+### Deployment
+The application is deployed and accessible at:
+- Frontend: https://luminous-babka-8cb047.netlify.app/
+
+
+
 ### Backend
 - Node.js
 - Express.js
